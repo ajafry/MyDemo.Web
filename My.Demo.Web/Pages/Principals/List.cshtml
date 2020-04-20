@@ -1,0 +1,29 @@
+﻿@page
+@model My.Demo.Web.Pages.Principals.ListModel
+@{
+    ViewData["Title"] = "Principals";
+}
+
+<h1>List of Principals</h1>
+
+<table class="table table-striped table-sm">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    @foreach (var p in Model.Principals)
+    {
+        <tr>
+            <td>@p.Name</td>
+            <td>
+                <a asp-route-id="@p.Id" asp-page="Edit"><i class="fa fa-edit"></i></a>
+                <span class="mn-lg-3">&nbsp;</span>
+                <a asp-route-id="@p.Id" asp-page="ConfirmDelete"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+    }
+</table>
+
+<a asp-page="Edit" class="btn btn-primary">Add Participant</a>

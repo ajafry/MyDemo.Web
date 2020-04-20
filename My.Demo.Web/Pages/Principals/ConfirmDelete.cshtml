@@ -1,0 +1,15 @@
+﻿@page "{id:int}"
+@model My.Demo.Web.Pages.Principals.ConfirmDeleteModel
+@{
+    ViewData["Title"] = "Confirm Delete";
+}
+
+<h1>Confirm Delete</h1>
+<h3 class="alert-danger">
+    Are you sure you wish to delete the record <br /> @Model.Principal.Name
+</h3>
+<form method="post">
+    <a class="btn btn-info" asp-page="./List">No</a>
+    <button class="btn btn-danger">Yes!</button>
+</form>
+
