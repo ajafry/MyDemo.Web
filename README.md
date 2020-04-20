@@ -1,4 +1,4 @@
-# MyDemo.Web
+# A Demo Website for learning a variety of concepts
 This is a Demo Web Application where users can enter a list of movies, people who are part of those movies and what part they played in those movies.
 
 The project demonstrates the following areas:
