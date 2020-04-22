@@ -1,0 +1,31 @@
+﻿@page "{id:int?}"
+@model My.Demo.Web.Pages.Movies.AddEditMovieModel
+@{
+    ViewData["Title"] = Model.PageTitle;
+}
+
+<h1>@Model.PageTitle</h1>
+<form method="post">
+    <input asp-for="@Model.Movie.Id" style="display:none" />
+    <div class="form-group">
+        <label asp-for="@Model.Movie.Title"></label>
+        <input asp-for="@Model.Movie.Title" class="form-control" placeholder="Enter a movie title..." />
+        <span asp-validation-for="@Model.Movie.Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Movie.Genre"></label>
+        <select class="form-control" asp-for="@Model.Movie.Genre" asp-items="@Model.Genres"></select>
+        <span asp-validation-for="@Model.Movie.Genre" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Movie.Language"></label>
+        <select class="form-control" asp-for="@Model.Movie.Language" asp-items="@Model.Languages"></select>
+        <span asp-validation-for="@Model.Movie.Language" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Movie.Year"></label>
+        <input asp-for="@Model.Movie.Year" class="form-control" />
+        <span asp-validation-for="@Model.Movie.Year" class="text-danger"></span>
+    </div>
+    <button class="btn btn-primary mt-3" type="submit">Save</button>
+</form>

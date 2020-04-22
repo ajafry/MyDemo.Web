@@ -16,9 +16,12 @@ namespace My.Demo.Data
         {
             movies = new List<Movie>()
             {
-                new Movie {Id = 1, Title = "Mission Impossible", Year = 1990},
-                new Movie {Id = 2, Title = "Casino Royale", Year = 2002},
-                new Movie {Id = 3, Title = "Spectre", Year = 2010 }
+                new Movie {Id = 1, Title = "Mission Impossible", Year = 1990, Language = Language.English, Genre = Genre.Action },
+                new Movie {Id = 2, Title = "Casino Royale", Year = 2002, Language = Language.English, Genre = Genre.Action },
+                new Movie {Id = 3, Title = "Spectre", Year = 2010, Language = Language.English, Genre = Genre.Action },
+                new Movie {Id = 4, Title = "Amelie", Year = 2010, Language = Language.French, Genre = Genre.Comedy },
+                new Movie {Id = 5, Title = "Kuch Kuch Hota Hai", Year = 1990, Language = Language.Hindi, Genre = Genre.Drama },
+                new Movie {Id = 6, Title = "Punjabi Nahin Jaoon Gi", Year = 2010, Language = Language.Urdu, Genre = Genre.Comedy }
             };
 
             principals = new List<Principal>()

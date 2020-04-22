@@ -10,6 +10,8 @@
         <tr>
             <th>Title</th>
             <th>Year</th>
+            <th>Genre</th>
+            <th>Language</th>
             <th>&nbsp;</th>
         </tr>
     </thead>
@@ -18,8 +20,12 @@
         <tr>
             <td>@movie.Title</td>
             <td>@movie.Year</td>
+            <td>@movie.Genre</td>
+            <td>@movie.Language</td>
             <td>
-                <a asp-route-id="@movie.Id" asp-page="EditMovie"><i class="fa fa-edit"></i></a>
+                <a asp-route-id="@movie.Id" asp-page="ViewMovie"><i class="fa fa-glasses"></i></a>
+                <span class="mn-lg-3">&nbsp;</span>
+                <a asp-route-id="@movie.Id" asp-page="AddEditMovie"><i class="fa fa-edit"></i></a>
                 <span class="mn-lg-3">&nbsp;</span>
                 <a asp-route-id="@movie.Id" asp-page="ConfirmDelete"><i class="fa fa-trash"></i></a>
             </td>
@@ -27,4 +33,4 @@
     }
 </table>
 <br />
-<a asp-page="EditMovie" class="btn btn-primary">Add Movie</a>
+<a asp-page="AddEditMovie" class="btn btn-primary">Add Movie</a>

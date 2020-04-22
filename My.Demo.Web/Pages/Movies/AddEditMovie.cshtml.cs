@@ -7,20 +7,34 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using My.Demo.Data;
 using My.Demo.Query.Services;
 using My.Demo.Command.Services;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace My.Demo.Web.Pages.Movies
 {
-    public class EditMovieModel : PageModel
+    public class AddEditMovieModel : PageModel
     {
         private readonly IMovieQueryService queryService;
         private readonly IMovieCommandService commandService;
+        private readonly IHtmlHelper htmlHelper;
+        private readonly List<SelectListItem> genres;
+        private readonly List<SelectListItem> languages;
 
-        public EditMovieModel(IMovieQueryService queryService,
-            IMovieCommandService commandService)
+        public AddEditMovieModel(IMovieQueryService queryService,
+            IMovieCommandService commandService,
+            IHtmlHelper htmlHelper)
         {
             this.queryService = queryService;
             this.commandService = commandService;
+            this.htmlHelper = htmlHelper;
+
+            Genres = htmlHelper.GetEnumSelectList<Genre>();
+            Languages = htmlHelper.GetEnumSelectList<Language>();
         }
+
+        public IEnumerable<SelectListItem> Genres { get; set; }
+        public IEnumerable<SelectListItem> Languages { get; set; }
+
 
         [BindProperty(SupportsGet = true)]
         public int Id { get; set; }
@@ -28,14 +42,18 @@ namespace My.Demo.Web.Pages.Movies
         [BindProperty]
         public Movie Movie { get; set; }
 
+        public string PageTitle { get; set; }
+
         public IActionResult OnGet(int? id)
         {
             if (id.HasValue)
             {
+                PageTitle = "Edit Movie";
                 Movie = queryService.GetById(id.Value).Result;
             }
             else
             {
+                PageTitle = "Add Movie";
                 Movie = new Movie();
             }
             if (Movie == null)
@@ -51,16 +69,15 @@ namespace My.Demo.Web.Pages.Movies
             {
                 return Page();
             }
-            Movie returnedValue = null;
             if (Movie.Id > 0)
             {
-                returnedValue = commandService.Update(Movie).Result;
+                Movie = commandService.Update(Movie).Result;
             }
             else
             {
-                returnedValue = commandService.Create(Movie).Result;
+                Movie = commandService.Create(Movie).Result;
             }
-            if (returnedValue == null)
+            if (Movie == null)
             {
                 return RedirectToPage("../NotFound");
             }
