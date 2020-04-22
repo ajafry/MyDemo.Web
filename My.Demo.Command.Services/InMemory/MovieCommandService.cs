@@ -44,6 +44,8 @@ namespace My.Demo.Command.Services.InMemory
             }
             else
             {
+                movie.Genre = model.Genre;
+                movie.Language = model.Language;
                 movie.Title = model.Title;
                 movie.Year = model.Year;
                 return Task.FromResult(movie);
