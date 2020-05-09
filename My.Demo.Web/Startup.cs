@@ -31,8 +31,6 @@ namespace My.Demo.Web
         public void ConfigureServices(IServiceCollection services)
         {
             string connectionString = Configuration.GetConnectionString("MovieDbConnection");
-                //"Server=my-movie-db.postgres.database.azure.com; Database=MovieDB2; Port=5432; User Id=\"ali@my-movie-db\"; Password=\"W3!come202O\";Ssl Mode = Require;";
-            //services.AddScoped<MovieDbContext>();
             services.AddDbContext<MovieDbContext>(options => 
                 options.UseNpgsql(connectionString)
                 .EnableSensitiveDataLogging(), 
