@@ -3,18 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My.Demo.Web", "My.Demo.Web\My.Demo.Web.csproj", "{87A62598-F4EA-4B25-947D-342F642C94AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "My.Demo.Web", "My.Demo.Web\My.Demo.Web.csproj", "{87A62598-F4EA-4B25-947D-342F642C94AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My.Demo.Data", "My.Demo.Data\My.Demo.Data.csproj", "{60D8A9AA-F2DF-4231-AFE3-B0D0E676879B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "My.Demo.Data", "My.Demo.Data\My.Demo.Data.csproj", "{60D8A9AA-F2DF-4231-AFE3-B0D0E676879B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My.Demo.Query.Services", "My.Demo.Query.Services\My.Demo.Query.Services.csproj", "{8F08C046-B262-4563-8439-6890B31E4A57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "My.Demo.Query.Services", "My.Demo.Query.Services\My.Demo.Query.Services.csproj", "{8F08C046-B262-4563-8439-6890B31E4A57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My.Demo.Command.Services", "My.Demo.Command.Services\My.Demo.Command.Services.csproj", "{EBA2EDBA-89BA-4842-91F1-116DAF175115}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "My.Demo.Command.Services", "My.Demo.Command.Services\My.Demo.Command.Services.csproj", "{EBA2EDBA-89BA-4842-91F1-116DAF175115}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2A4D6E48-E6F9-4045-8972-58013F1FD805}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My.Demo.Data.Postgres", "My.Demo.Data.Postgres\My.Demo.Data.Postgres.csproj", "{49C80131-8398-435F-9D12-40D03AF73C52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,10 @@ Global
 		{EBA2EDBA-89BA-4842-91F1-116DAF175115}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBA2EDBA-89BA-4842-91F1-116DAF175115}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBA2EDBA-89BA-4842-91F1-116DAF175115}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49C80131-8398-435F-9D12-40D03AF73C52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49C80131-8398-435F-9D12-40D03AF73C52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49C80131-8398-435F-9D12-40D03AF73C52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49C80131-8398-435F-9D12-40D03AF73C52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -28,4 +28,9 @@
         <span asp-validation-for="@Model.Movie.Year" class="text-danger"></span>
     </div>
     <button class="btn btn-primary mt-3" type="submit">Save</button>
+    <a class="btn btn-secondary mt-3" asp-page="ListMovies">Cancel</a>
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial.cshtml" />
+}

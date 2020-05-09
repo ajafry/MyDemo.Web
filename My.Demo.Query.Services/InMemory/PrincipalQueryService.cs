@@ -24,9 +24,9 @@ namespace My.Demo.Query.Services.InMemory
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<MoviePrincipal>> GetMovies()
+        public async Task<IEnumerable<MoviePrincipal>> GetPrincipalsByMovie(int movieId)
         {
-            throw new NotImplementedException();
+            return await Task.FromResult(InMemoryData.MoviePrincipals.FindAll(mp => mp.Movie.Id == movieId).AsEnumerable());
         }
     }
 }

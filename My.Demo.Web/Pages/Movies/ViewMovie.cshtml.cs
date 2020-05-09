@@ -27,13 +27,14 @@ namespace My.Demo.Web.Pages.Movies
         public int Id { get; set; }
 
         public Movie Movie { get; set; }
-        public IActionResult OnGet(int id)
+        public async Task<IActionResult> OnGetAsync(int id)
         {
-            Movie = queryService.GetById(id).Result;
+            Movie = await queryService.GetById(id, true);
             if (Movie == null)
             {
                 loggerDebug.LogWarning($"[ViewMovie][OnGet] The movie Id {id} was not found");
-                return NotFound();      // Deliberately sending a NotFound for App Insights to catch
+                //return NotFound();      // Deliberately sending a NotFound for App Insights to catch
+                return RedirectToPage("../NotFound");
             }
             return Page();
         }

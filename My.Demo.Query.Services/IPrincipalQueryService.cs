@@ -8,6 +8,6 @@ namespace My.Demo.Query.Services
 {
     public interface IPrincipalQueryService : IQueryService<Principal>
     {
-        Task<IEnumerable<MoviePrincipal>> GetMovies();
+        Task<IEnumerable<MoviePrincipal>> GetPrincipalsByMovie(int movieId);
     }
 }

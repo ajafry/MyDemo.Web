@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
@@ -36,13 +36,13 @@ namespace My.Demo.Data
                 new Principal { Id = 57, Name = "Robert De Niro" },
                 new Principal { Id = 58, Name = "Al Pacino" }
             };
-
+            var tmpMovie = movies.FirstOrDefault(m => m.Id == 1);
+            var tmpPerson = principals.FirstOrDefault(p => p.Id == 50);
+            var tmpPerson2 = principals.FirstOrDefault(p => p.Id == 51);
             moviePrincipals = new List<MoviePrincipal>()
             {
-                new MoviePrincipal { Id=100, MovieId=1, PersonId=50, Role="Actor"  },
-                new MoviePrincipal { Id=101, MovieId=1, PersonId=51, Role="Actor" },
-                new MoviePrincipal { Id=102, MovieId=2, PersonId=52, Role="Actor" },
-                new MoviePrincipal { Id=103, MovieId=3, PersonId=52, Role="Actor" }
+                new MoviePrincipal { Id=100, Movie=tmpMovie, Principal=tmpPerson, Role="Actor"  },
+                new MoviePrincipal { Id=101, Movie=tmpMovie, Principal=tmpPerson2, Role="Actor" },
             };
         }
 

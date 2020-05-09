@@ -20,6 +20,6 @@ namespace My.Demo.Data
         [Required, MaxLength(255)]
         public string Name { get; set; }
         public string ImageUrl { get; set; }
-        IEnumerable<Movie> Movies { get; set; }
+        IEnumerable<MoviePrincipal> Movies { get; set; }
     }
 }

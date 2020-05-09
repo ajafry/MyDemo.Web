@@ -13,6 +13,8 @@ using My.Demo.Query.Services;
 using My.Demo.Command.Services;
 using My.Demo.Query.Services.InMemory;
 using My.Demo.Command.Services.InMemory;
+using My.Demo.Data.Postgres;
+using Microsoft.EntityFrameworkCore;
 
 namespace My.Demo.Web
 {
@@ -28,8 +30,15 @@ namespace My.Demo.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IMovieQueryService, MovieQueryService>();
-            services.AddSingleton<IPrincipalQueryService, PrincipalQueryService>();
+            string connectionString = Configuration.GetConnectionString("MovieDbConnection");
+                //"Server=my-movie-db.postgres.database.azure.com; Database=MovieDB2; Port=5432; User Id=\"ali@my-movie-db\"; Password=\"W3!come202O\";Ssl Mode = Require;";
+            //services.AddScoped<MovieDbContext>();
+            services.AddDbContext<MovieDbContext>(options => 
+                options.UseNpgsql(connectionString)
+                .EnableSensitiveDataLogging(), 
+                ServiceLifetime.Transient);
+            services.AddTransient<IMovieQueryService, My.Demo.Query.Services.DB.MovieQueryService>();
+            services.AddTransient<IPrincipalQueryService, My.Demo.Query.Services.DB.PrincipalQueryService>();
             services.AddSingleton<IMovieCommandService, MovieCommandService>();
             services.AddSingleton<IPrincipalCommandService, PrincipalCommandService>();
             services.AddRazorPages();

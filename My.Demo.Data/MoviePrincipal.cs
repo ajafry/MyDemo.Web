@@ -9,9 +9,9 @@ namespace My.Demo.Data
     {
         public int Id { get; set; }
         public int MovieId { get; set; }
-        public int PersonId { get; set; }
-        //public Movie Movie { get; set; }
-        //public Person Principal { get; set; }
+        public int PrincipalId { get; set; }
+        public Movie Movie { get; set; }
+        public Principal Principal { get; set; }
         [Required]
         public string Role { get; set; }
     }

@@ -31,9 +31,15 @@
                 </div>
             </div>
         </form>
+        <div class="mt-3 bg-light">
+            <h3>Principals</h3>
+            <partial name="_PrincipalsView" model="@Model.Movie" />
+        </div>
     </div>
 </div>
 
 <div class="mt-4">
+    <a class="btn btn-primary" asp-route-id="@Model.Movie.Id" asp-page="AssociatePrincipal">Associate Principal</a>
     <a class="btn btn-primary" asp-page="ListMovies">Back to Movie List</a>
+
 </div>

@@ -1,0 +1,17 @@
+﻿@model My.Demo.Data.Movie
+
+<table class="table table-striped table-sm">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+    @foreach (var mp in Model.Principals)
+    {
+        <tr>
+            <td>@mp.Principal.Name</td>
+            <td>@mp.Role</td>
+        </tr>
+    }
+</table>

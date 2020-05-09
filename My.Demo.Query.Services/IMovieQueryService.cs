@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 namespace My.Demo.Query.Services
 {
     public interface IMovieQueryService : IQueryService<Movie> {
-        Task<IEnumerable<MoviePrincipal>> GetPrincipals();
+        //Task<IEnumerable<MoviePrincipal>> GetPrincipals();
     }
 }

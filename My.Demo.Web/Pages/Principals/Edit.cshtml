@@ -12,5 +12,9 @@
         <input asp-for="@Model.Principal.Name" class="form-control" />
         <br />
         <button class="btn btn-primary" type="submit">Save</button>
+        <a class="btn btn-secondary" asp-page="List">Cancel</a>
     </div>
 </form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial.cshtml" />
+}
