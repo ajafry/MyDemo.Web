@@ -338,3 +338,6 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+# Files that I do not want to go to GIT after the initial commit
+appsettings.json

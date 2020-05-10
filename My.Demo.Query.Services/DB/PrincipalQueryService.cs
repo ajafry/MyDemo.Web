@@ -20,13 +20,13 @@ namespace My.Demo.Query.Services.DB
         }
         public async Task<IEnumerable<Principal>> GetAll()
         {
-            return await Task.FromResult(InMemoryData.Principals.AsEnumerable());
+            return await Task.FromResult(db.Principals.AsEnumerable());
         }
 
         public async Task<Principal> GetById(int id, bool loadGraph = false)
         {
             var principal = await db.Principals.FindAsync(id);
-            return principal;// Task.FromResult(InMemoryData.Principals.SingleOrDefault(p => p.Id == id));
+            return principal;
         }
 
         public async Task<Principal> GetByName(string nameFragment, bool loadGraph = false)
