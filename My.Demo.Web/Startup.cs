@@ -34,7 +34,12 @@ namespace My.Demo.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            string connectionString = Configuration.GetConnectionString("MovieDbConnection");
+            //var blah = Configuration.GetValue<string>("MovieDbConnection");
+
+            //var section = Configuration.GetSection("ConnectionStrings");
+            //var val = section.GetValue<string>("MovieDbConnection");
+            //string connectionString = Configuration.GetConnectionString("MovieDbConnection");
+            string connectionString = Configuration.GetValue<string>("MovieDbConnection");
             Console.WriteLine($"{nameof(ConfigureServices)} - Initializing DB Connection with [{connectionString}]");
             services.AddDbContext<MovieDbContext>(options => 
                 options.UseNpgsql(connectionString)
