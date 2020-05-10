@@ -15,11 +15,15 @@ using My.Demo.Query.Services.InMemory;
 using My.Demo.Command.Services.InMemory;
 using My.Demo.Data.Postgres;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore.Query;
 
 namespace My.Demo.Web
 {
     public class Startup
     {
+        private readonly ILogger<Startup> logger;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -31,6 +35,7 @@ namespace My.Demo.Web
         public void ConfigureServices(IServiceCollection services)
         {
             string connectionString = Configuration.GetConnectionString("MovieDbConnection");
+            Console.WriteLine($"{nameof(ConfigureServices)} - Initializing DB Connection with [{connectionString}]");
             services.AddDbContext<MovieDbContext>(options => 
                 options.UseNpgsql(connectionString)
                 .EnableSensitiveDataLogging(), 

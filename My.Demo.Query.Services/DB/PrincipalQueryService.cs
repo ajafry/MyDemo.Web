@@ -6,6 +6,7 @@ using My.Demo.Data;
 using System.Threading.Tasks;
 using My.Demo.Data.Postgres;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace My.Demo.Query.Services.DB
 {
@@ -13,13 +14,16 @@ namespace My.Demo.Query.Services.DB
     {
         private readonly IPrincipalQueryService queryService;
         private MovieDbContext db;
+        private readonly ILogger<PrincipalQueryService> logger;
 
-        public PrincipalQueryService(MovieDbContext db)
+        public PrincipalQueryService(MovieDbContext db, ILogger<PrincipalQueryService> logger)
         {
             this.db = db;
+            this.logger = logger;
         }
         public async Task<IEnumerable<Principal>> GetAll()
         {
+            logger.LogDebug($"{nameof(GetAll)} About to retrieve all Principals");
             return await Task.FromResult(db.Principals.AsEnumerable());
         }
 
