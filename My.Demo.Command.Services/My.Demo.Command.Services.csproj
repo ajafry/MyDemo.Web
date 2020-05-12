@@ -5,10 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DB\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\My.Demo.Data.Postgres\My.Demo.Data.Postgres.csproj" />
     <ProjectReference Include="..\My.Demo.Data\My.Demo.Data.csproj" />
   </ItemGroup>
 

@@ -24,7 +24,7 @@ namespace My.Demo.Query.Services.DB
         public async Task<IEnumerable<Principal>> GetAll()
         {
             logger.LogDebug($"{nameof(GetAll)} About to retrieve all Principals");
-            return await Task.FromResult(db.Principals.AsEnumerable());
+            return await Task.FromResult(db.Principals.OrderBy(p => p.Name).AsEnumerable());
         }
 
         public async Task<Principal> GetById(int id, bool loadGraph = false)

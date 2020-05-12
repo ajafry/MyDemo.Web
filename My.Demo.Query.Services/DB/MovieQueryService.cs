@@ -20,24 +20,20 @@ namespace My.Demo.Query.Services.DB
             this.db = db;
         }
 
-        public Task<IEnumerable<Movie>> GetAll()
+        public async Task<IEnumerable<Movie>> GetAll()
         {
-            return Task.FromResult(db.Movies.AsEnumerable());
+            return await Task.FromResult(db.Movies.OrderBy(m => m.Title).AsEnumerable());
         }
 
         public async Task<Movie> GetById(int id, bool loadGraph = false)
         {
             Movie movie = null;
-            //await Task.Run(() => 
-            //{
-                movie = db.Movies.FindAsync(id).Result;
-                if (loadGraph)
-                {
-                    movie.Principals = queryService.GetPrincipalsByMovie(id).Result;
+            movie = db.Movies.FindAsync(id).Result;
+            if (loadGraph)
+            {
+                movie.Principals = queryService.GetPrincipalsByMovie(id).Result;
 
-                }
-            //});
-
+            }
             return await Task.FromResult(movie);
         }
 

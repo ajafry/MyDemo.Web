@@ -41,8 +41,8 @@ namespace My.Demo.Web
                 ServiceLifetime.Transient);
             services.AddTransient<IMovieQueryService, My.Demo.Query.Services.DB.MovieQueryService>();
             services.AddTransient<IPrincipalQueryService, My.Demo.Query.Services.DB.PrincipalQueryService>();
-            services.AddSingleton<IMovieCommandService, MovieCommandService>();
-            services.AddSingleton<IPrincipalCommandService, PrincipalCommandService>();
+            services.AddTransient<IMovieCommandService, My.Demo.Command.Services.DB.MovieCommandService>();
+            services.AddTransient<IPrincipalCommandService, My.Demo.Command.Services.DB.PrincipalCommandService>();
             services.AddRazorPages();
         }
 
